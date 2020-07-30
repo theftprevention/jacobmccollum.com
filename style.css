@@ -1,0 +1,111 @@
+:root {
+    --color-default: #111;
+    --color-links: #555;
+
+    --color-github: #000;
+    --color-linkedin: #0072b1;
+    --color-resume: #a00;
+    --color-stackoverflow: #f48024;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    color: var(--color-default);
+}
+
+main, nav, ul, li, a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main {
+    min-height: 100vh;
+    align-items: stretch;
+    font-size: 6vw;
+    text-align: center;
+}
+
+@media (min-width: 25rem) {
+    main {
+        font-size: 1.5rem;
+    }
+}
+
+h1 {
+    font-size: 1.75em;
+    font-weight: 300;
+    margin: 0 0 1em;
+}
+
+nav {
+    align-items: center;
+}
+
+ul {
+    align-items: stretch;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    align-items: center;
+    margin: 0.5em 0 0;
+}
+li:first-child {
+    margin-top: 0;
+}
+
+a {
+    align-items: center;
+    position: relative;
+    color: var(--color-links);
+    text-decoration: none;
+    padding: 0.5em 0.25em;
+    transition: color 0.3s ease-in-out;
+}
+a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0.15em;
+    opacity: 0;
+    background-color: currentColor;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+a:focus {
+    outline: none;
+}
+a:focus:not(:active):after,
+a:hover:after {
+    width: 100%;
+    opacity: 1;
+}
+
+a[href^="files/resume"]:focus:not(:active),
+a[href^="files/resume"]:hover {
+    color: var(--color-resume);
+}
+a[href^="https://linkedin.com"]:focus:not(:active),
+a[href^="https://linkedin.com"]:hover,
+a[href^="https://www.linkedin.com"]:focus:not(:active),
+a[href^="https://www.linkedin.com"]:hover {
+    color: var(--color-linkedin);
+}
+a[href^="https://stackoverflow.com"]:focus:not(:active),
+a[href^="https://stackoverflow.com"]:hover,
+a[href^="https://www.stackoverflow.com"]:focus:not(:active),
+a[href^="https://www.stackoverflow.com"]:hover {
+    color: var(--color-stackoverflow);
+}
+a[href^="https://github.com"]:focus:not(:active),
+a[href^="https://github.com"]:hover,
+a[href^="https://www.github.com"]:focus:not(:active),
+a[href^="https://www.github.com"]:hover {
+    color: var(--color-github);
+}
